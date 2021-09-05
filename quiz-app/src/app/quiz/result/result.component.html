@@ -1,0 +1,30 @@
+<div class="row mt-5 mr-0">
+  <div class="col-md-2"></div>
+  <div class="col-md-5 text-center">
+    <div class="divGroup glass">
+      <div class="welcomeHeader">
+        <h1 style="color: gold">Congratulations</h1>
+        <img src="../assets/images/pngegg.png" style="width: 200px;">
+      </div>
+      <br>
+      <h1 class="text-white">Your Score</h1>
+      <h1 class="text-white">{{resultPoints}}/5</h1>
+      <hr class="mt-4" style="border-top: 2px solid #fff;">
+
+      <h1 class="text-white">Average : {{percentage}}%</h1>
+    </div>
+  </div>
+  <div class="col-md-1"></div>
+  <div class="col-md-3 text-center">
+    <div class="divGroup glass">
+      <h3 class="text-white"><i class="fa fa-bar-chart" aria-hidden="true"></i> Top Scorer</h3>
+      <hr class="mt-4" style="border-top: 2px solid #fff;">
+      <h5 class="text-left text-white" *ngFor="let score of getHighestScoreList; let i=index">{{i+1}}
+        {{score.registrationName}} <span style="float: right">{{score.highestScore}}%</span></h5>
+    </div>
+    <button class="btn mt-5" routerLink="/quiz/quiz-game">
+      <i class="fa fa-play"></i>
+    </button>
+    <h1 class="text-white mt-2">Play Again!</h1>
+  </div>
+</div>

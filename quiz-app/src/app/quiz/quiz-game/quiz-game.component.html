@@ -1,0 +1,86 @@
+<div class="back-image"
+    style="background-image: url('../../assets/images/blur_banner.png');background-size: 100% 100%;height: 100vh;">
+    <button class="btn text-white home-btn" routerLink="/quiz/quiz-home">
+        <h1>
+            <i class="fa fa-home" aria-hidden="true"></i>
+        </h1>
+    </button>
+    <div class="row question-rows mr-0 pt-5">
+        <div class="col-lg-1 col-md-1"></div>
+        <div class="col-lg-2 col-md-4 col-sm-4 col-6 text-center">
+            <button class="btn" [ngClass]="questionNumberCount >= 1 ? 'round-1' : 'round-2 == 0'">
+                <h2>1</h2>
+            </button>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-4 col-6 text-center">
+            <button class="btn" [ngClass]="questionNumberCount >= 2 ? 'round-1' : 'round-2 == 0'">
+                <h2>2</h2>
+            </button>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-4 col-6 text-center">
+            <button class="btn" [ngClass]="questionNumberCount >= 3 ? 'round-1' : 'round-2 == 0'">
+                <h2>3</h2>
+            </button>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-4 col-6 text-center">
+            <button class="btn" [ngClass]="questionNumberCount >= 4 ? 'round-1' : 'round-2 == 0'">
+                <h2>4</h2>
+            </button>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-4 col-6 text-center">
+            <button class="btn" [ngClass]="questionNumberCount >= 5 ? 'round-1' : 'round-2 == 0'">
+                <h2>5</h2>
+            </button>
+        </div>
+    </div>
+    {{questionNumberCount}}
+    <div *ngFor="let quest of questionList | slice:0:1; let i=index">
+        <hr class="hr-1 top-hr">
+        <div class="question-div p-4 container">
+            <h1 class="text-center text-white mb-0">{{quest.questionName}}</h1>
+        </div>
+        <hr class="hr-1 mt-0">
+
+        <div class="container">
+            <div class="row option-row mt-5">
+                <div class="col-md-6 form-group">
+                    <div class="first-card" [ngClass]="status12 ? 'success2' : 'danger2'">
+                        <div class="card btn" (click)="aFunc(quest)" [ngClass]="status1 ? 'success' : 'danger'">
+                            <h2 class="text-center text-white">{{quest.optionA}}</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 form-group">
+                    <div class="first-card" [ngClass]="status22 ? 'success2' : 'danger2'">
+                        <div class="card btn" (click)="bFunc(quest)" [ngClass]="status2 ? 'success' : 'danger'">
+                            <h2 class="text-center text-white">{{quest.optionB}}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row option-row mt-3">
+                <div class="col-md-6 form-group">
+                    <div class="first-card" [ngClass]="status32 ? 'success2' : 'danger2'">
+                        <div class="card btn" (click)="cFunc(quest)" [ngClass]="status3 ? 'success' : 'danger'">
+                            <h2 class="text-center text-white">{{quest.optionC}}</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 form-group">
+                    <div class="first-card" [ngClass]="status42 ? 'success2' : 'danger2'">
+                        <div class="card btn" (click)="dFunc(quest)" [ngClass]="status4 ? 'success' : 'danger'">
+                            <h2 class="text-center text-white">{{quest.optionD}}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 text-center pt-5 mt-5" *ngIf="questionNumberCount >= 5">
+        <button class="btn btn-success" (click)="getResult()" routerLink="/quiz/result"><i class="fa fa-bar-chart"
+                aria-hidden="true"></i> Result</button>
+    </div>
+
+</div>
